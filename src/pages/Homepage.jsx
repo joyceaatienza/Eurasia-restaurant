@@ -23,8 +23,8 @@ function Homepage() {
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative h-[420px] flex flex-col items-center justify-center text-center overflow-hidden">
-        <img
+      <div className="relative min-h-[420px] py-10 flex flex-col items-center justify-center text-center overflow-hidden">       
+         <img
           src="https://images.unsplash.com/photo-1552566626-52f8b828add9?w=1600"
           alt="Restaurant interior"
           className="absolute inset-0 w-full h-full object-cover"
@@ -32,18 +32,17 @@ function Homepage() {
         <div className="absolute inset-0 bg-white/60" />
 
         <div className="relative z-10 flex flex-col items-center">
-          <div className="w-28 h-28 rounded-full border-2 border-neutral-900 flex items-center justify-center mb-4 bg-white/70">
-            <span className="text-4xl">🦁</span>
+          <div className="w-20 h-20 md:w-28 md:h-28 rounded-full border-2 border-neutral-900 flex items-center justify-center mb-4 bg-white/70">
+          <span className="text-2xl md:text-4xl">🦁</span>
           </div>
-          <h1 className="text-5xl font-serif tracking-[0.3em] text-neutral-900">EURASIA</h1>
-          <p className="text-lg font-serif tracking-[0.5em] text-neutral-700 mt-1">RESTAURANT</p>
-
-          <p className="mt-6 text-neutral-800 font-serif">
-            5th Floor ARADA VIRTUCIO Building, Banay-Banay, San Jose, Batangas
+         <h1 className="text-3xl md:text-5xl font-serif tracking-[0.2em] md:tracking-[0.3em] text-neutral-900">EURASIA</h1>
+         <p className="text-sm md:text-lg font-serif tracking-[0.3em] md:tracking-[0.5em] text-neutral-700 mt-1">RESTAURANT</p>
+         <p className="mt-4 md:mt-6 text-xs md:text-base text-neutral-800 font-serif px-6">
+          5th Floor ARADA VIRTUCIO Building, Banay-Banay, San Jose, Batangas
           </p>
-          <p className="text-neutral-800 font-serif">
+          <p className="text-xs md:text-base text-neutral-800 font-serif px-6">
             [Weekdays] 11:00am-10:00pm &nbsp;|&nbsp; [Weekends] 10:00am-10:00pm
-          </p>
+            </p>
         </div>
       </div>
 
@@ -51,7 +50,7 @@ function Homepage() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex items-center justify-center gap-4 mb-12">
           <div className="h-px flex-1 bg-neutral-300" />
-          <h2 className="text-3xl font-serif font-bold tracking-wide text-neutral-900">BEST SELLER</h2>
+          <h2 className="text-xl font-serif font-bold tracking-wide text-neutral-900">BEST SELLER</h2>
           <div className="h-px flex-1 bg-neutral-300" />
         </div>
 
