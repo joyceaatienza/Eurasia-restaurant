@@ -1,5 +1,6 @@
 import logo from '../assets/logopic2.png'
 import bg from '../assets/bg.jpg'
+import { useRef } from "react";
 
 function Homepage() {
   const bestSellers = [
@@ -23,6 +24,18 @@ function Homepage() {
     },
   ]
 
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const amount = 340;
+      scrollRef.current.scrollBy({
+        left: direction === "next" ? amount : -amount,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="bg-white">
       {/* Hero Section */}
@@ -43,36 +56,54 @@ function Homepage() {
       </div>
 
       {/* Best Seller Section */}
-      <div className="max-w-6xl mx-auto px-6 py-16">
+      <div className="max-w-6xl mx-auto px-6 py-11">
         <div className="flex items-center justify-center gap-4 mb-12">
           <div className="h-px flex-1 bg-neutral-300" />
           <h2 className="text-7xl font-serif font-bold tracking-wide text-[#1d080f]">BEST SELLER</h2>
           <div className="h-px flex-1 bg-neutral-300" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {bestSellers.map((item, i) => (
-            <div key={i} className="border border-neutral-200 p-5 flex flex-col">
-              <div className="flex justify-between items-start mb-1">
-                <h3 className="text-lg font-serif font-bold">{item.name}</h3>
+        <div className="relative">
+          {/* Prev Arrow */}
+          <button
+            onClick={() => scroll("prev")}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 shadow-md w-10 h-10 rounded-full hover:bg-white transition flex items-center justify-center text-xl"
+          >
+            ‹
+          </button>
+
+          {/* Scrollable Cards */}
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto scroll-smooth no-scrollbar"
+          >
+            {bestSellers.map((item, i) => (
+              <div
+                key={i}
+                className="relative min-w-[320px] h-[420px] flex-shrink-0 rounded-lg overflow-hidden group"
+              >
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <h3 className="text-xl font-serif font-semibold mb-1">{item.name}</h3>
+                  <p className="text-sm text-neutral-200">{item.price}</p>
+                </div>
               </div>
-              <p className="text-sm font-semibold text-neutral-700 mb-3">{item.price}</p>
-              <img
-                src={item.img}
-                alt={item.name}
-                className="w-full h-48 object-cover rounded-full mb-4"
-              />
-              <p className="text-sm text-neutral-600 text-center mb-4 flex-1">{item.desc}</p>
-              <div className="flex gap-2">
-                <button className="flex-1 bg-neutral-900 text-white py-2 text-sm font-semibold hover:bg-neutral-800">
-                  Buy Now
-                </button>
-                <button className="flex-1 bg-neutral-200 text-neutral-900 py-2 text-sm font-semibold hover:bg-neutral-300">
-                  Add to Tray
-                </button>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* Next Arrow */}
+          <button
+            onClick={() => scroll("next")}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 shadow-md w-10 h-10 rounded-full hover:bg-white transition flex items-center justify-center text-xl"
+          >
+            ›
+          </button>
         </div>
       </div>
     </div>
