@@ -37,8 +37,8 @@ function Navbar() {
         <NavLink to="/">
           <img src={logo} alt="Eurasia Restaurant" className="h-12 w-auto" />
         </NavLink>
-
-        <div className="hidden md:flex items-center gap-8 text-neutral-800 font-serif">
+        
+        <div className="hidden md:flex items-center gap-8 text-neutral-800 font-heading">          
           <NavLink to="/" end className={linkClass}>Home</NavLink>
 
           <div className="relative" ref={menuRef}>
@@ -106,7 +106,7 @@ function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-neutral-100 px-6 py-4 flex flex-col gap-4 font-serif text-neutral-800">
+        <div className="md:hidden bg-white border-t border-neutral-100 px-6 py-4 flex flex-col gap-4 font-heading text-neutral-800">        
           <NavLink to="/" end onClick={() => setMobileOpen(false)} className={linkClass}>Home</NavLink>
           <NavLink to="/menu" onClick={() => setMobileOpen(false)} className={linkClass}>Menu</NavLink>
           <NavLink to="/reservation" onClick={() => setMobileOpen(false)} className={linkClass}>Reservation</NavLink>

@@ -1,4 +1,17 @@
+@font-face {
+  font-family: 'Prata';
+  src: url('./fonts/Prata-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-heading {
+  font-family: 'Prata', serif;
+}
+
+
 @import "tailwindcss";
+
 html, body, #root {
   height: 100%;
 }
