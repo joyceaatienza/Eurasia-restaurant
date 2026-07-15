@@ -29,7 +29,9 @@ function Navbar() {
   }, [])
 
   const linkClass = ({ isActive }) =>
-    isActive ? 'font-bold text-neutral-900' : 'hover:text-amber-800'
+    isActive
+      ? 'font-bold text-[#1d080f] [-webkit-text-stroke:0.4px_#1d080f]'
+      : 'hover:text-[#1d080f]'
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-xl">
@@ -38,14 +40,12 @@ function Navbar() {
           <img src={logo} alt="Eurasia Restaurant" className="h-12 w-auto" />
         </NavLink>
         
-        <div className="hidden md:flex items-center gap-8 text-neutral-800 font-heading">          
+        <div className="hidden md:flex items-center gap-8 text-[#1d080f] font-heading">
           <NavLink to="/" end className={linkClass}>Home</NavLink>
-
           <div className="relative" ref={menuRef}>
             <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className={`flex items-center gap-1 ${isMenuActive ? 'font-bold text-neutral-900' : 'hover:text-amber-800'}`}
-            >
+            className={`flex items-center gap-1 ${isMenuActive ? 'font-bold text-[#1d080f] [-webkit-text-stroke:0.4px_#1d080f]' : 'hover:text-[#1d080f]'}`}            >
               Menu
               <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -66,8 +66,7 @@ function Navbar() {
           <div className="relative" ref={reservationRef}>
           <button 
           onClick={() => setReservationOpen(!reservationOpen)}
-          className={`flex items-center gap-1 ${isReservationActive ? 'font-bold text-neutral-900' : 'hover:text-amber-800'}`}
-          >
+          className={`flex items-center gap-1 ${isReservationActive ? 'font-bold text-[#1d080f] [-webkit-text-stroke:0.4px_#1d080f]' : 'hover:text-[#1d080f]'}`}          >
               Reservation
               <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -106,7 +105,7 @@ function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-neutral-100 px-6 py-4 flex flex-col gap-4 font-heading text-neutral-800">        
+        <div className="md:hidden bg-white border-t border-neutral-100 px-6 py-4 flex flex-col gap-4 font-heading text-[#1d080f]">        
           <NavLink to="/" end onClick={() => setMobileOpen(false)} className={linkClass}>Home</NavLink>
           <NavLink to="/menu" onClick={() => setMobileOpen(false)} className={linkClass}>Menu</NavLink>
           <NavLink to="/reservation" onClick={() => setMobileOpen(false)} className={linkClass}>Reservation</NavLink>

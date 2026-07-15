@@ -46,7 +46,7 @@ function Homepage() {
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="flex items-center justify-center gap-4 mb-12">
           <div className="h-px flex-1 bg-neutral-300" />
-          <h2 className="text-xl font-serif font-bold tracking-wide text-neutral-900">BEST SELLER</h2>
+          <h2 className="text-7xl font-serif font-bold tracking-wide text-[#1d080f]">BEST SELLER</h2>
           <div className="h-px flex-1 bg-neutral-300" />
         </div>
 
