@@ -1,26 +1,104 @@
 import logo from '../assets/logopic2.png'
 import bg from '../assets/bg.jpg'
+import bakedSalmon from '../assets/baked-salmon2.png'
+import bbqRibs from '../assets/texas-bbq-ribs2.png'
+import norwegianSalmon from '../assets/norwegian-salmon2.png'
+import chickenBbq from '../assets/texas-chicken-bbq2.png'
+import tuttoMare from '../assets/tutto-mare2.png'
+import carneSupreme from '../assets/carne-supreme2.png'
+import alTonno from '../assets/al-tonno2.png'
+import baconCheese from '../assets/bacon-cheese-pizza2.png'
+import margherita from '../assets/margherita2.png'
+import mexicana from '../assets/mexicana.png'
+import pepperoni from '../assets/pepperoni.png'
+import quatroFormaggi from '../assets/quatro-formaggi2.png'
 import { useRef } from "react";
 
 function Homepage() {
   const bestSellers = [
     {
-      name: 'Filet Mignon',
-      price: 'Php. 1391',
-      desc: 'Pan grilled 250 grams tenderloin served with potato puree, french beans and peppercorn sauce',
-      img: 'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=500',
+      name: 'Baked Salmon',
+      price: 'Php. 755',
+      desc: 'Herb-roasted salmon served with fresh mixed greens',
+      img: bakedSalmon,
+      position: 'object-bottom',
     },
     {
-      name: 'Truffle Pasta',
-      price: 'Php. 890',
-      desc: 'Fresh tagliatelle tossed in creamy truffle sauce with parmesan shavings',
-      img: 'https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500',
+      name: 'Texas BBQ Ribs',
+      price: 'Php. 876',
+      desc: 'Slow cooked marinated 300 grams Baby back ribs served with potato wedges, pesto tossed veggies and coleslaw',
+      img: bbqRibs,
+      position: 'object-bottom',
     },
     {
-      name: 'Wagyu Pizza',
-      price: 'Php. 990',
-      desc: 'Thin crust pizza topped with wagyu beef, onions and mozzarella',
-      img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500',
+      name: 'Norwegian Salmon',
+      price: 'Php. 1490',
+      desc: 'Baked 200 grams salmon filet served with steamed vegetables, lemon butter capers sauce',
+      img: norwegianSalmon,
+      position: 'object-bottom',
+    },
+    {
+      name: 'Texas Chicken BBQ',
+      price: 'Php. 599',
+      desc: 'Strip of chicken breast with olives and bell peppers drizzled with barbeque sauce',
+      img: chickenBbq,
+      position: 'object-bottom',
+    },
+     {
+      name: 'Bacon Cheese Pizza',
+      price: 'Php. 366',
+      desc: 'Thin crust pizza dough toppped with pomodoro sauce, mozzarella, cheddar, and slices of bacon',
+      img: baconCheese,
+      position: 'object-bottom',
+    },
+    {
+      name: 'Al Tonno',
+      price: 'Php. 578',
+      desc: 'Tuna chunks, bell pepper, olives, onion served with lemon wedges on the side',
+      img: alTonno,
+      position: 'object-bottom',
+    },
+     {
+      name: 'Mexicana',
+      price: 'Php. 704',
+      desc: 'Chili con carne, bell peppers, and choppped fesh jalapenos',
+      img: mexicana,
+      position: 'object-bottom',
+    },
+    {
+      name: 'Tutto Mare',
+      price: 'Php. 578',
+      desc: 'Calamari, shrimp, tuna, bell peppers, and onion',
+      img: tuttoMare,
+      position: 'object-bottom',
+    },
+     {
+      name: 'Pepperoni',
+      price: 'Php. 578',
+      desc: 'Pomodoro sauce, cheddar, and mozzarella cheese',
+      img: pepperoni,
+      position: 'object-[20%]',
+    },
+    {
+      name: 'Margherita',
+      price: 'Php. 578',
+      desc: 'Fresh slice tomato, basil leaves, mozzarella cheese drizzled with pesto sauce',
+      img: margherita,
+      position: 'object-bottom',
+    },
+     {
+      name: 'Quatro Formaggi',
+      price: 'Php. 693',
+      desc: 'Béchamel, mozzarella, cheddar, Swiss cheese and parmesan',
+      img: quatroFormaggi,
+      position: 'object-bottom',
+    },
+    {
+      name: 'Carne Supreme',
+      price: 'Php. 711',
+      desc: 'Chili con carne, bacon, Italian sausage, bell peppers, onions, and olives',
+      img: carneSupreme,
+      position: 'object-bottom',
     },
   ]
 
@@ -82,11 +160,11 @@ function Homepage() {
                 key={i}
                 className="relative min-w-[320px] h-[420px] flex-shrink-0 rounded-lg overflow-hidden group"
               >
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition duration-300"
-                />
+              <img
+              src={item.img}
+              alt={item.name}
+              className={`absolute inset-0 w-full h-full object-cover ${item.position} group-hover:scale-105 transition duration-300`}
+              />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
