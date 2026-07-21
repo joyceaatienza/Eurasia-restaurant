@@ -14,7 +14,7 @@ import pepperoni from '../assets/pepperoni2.png'
 import quatroFormaggi from '../assets/quatro-formaggi2.png'
 
 import { Link } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 function FindUs() {
   const address = "5th Floor ARADA VIRTUCIO Building, Banay-Banay, San Jose, Batangas";
@@ -22,7 +22,6 @@ function FindUs() {
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 bg-[#fdfbf7]">
-      {/* Map Embed */}
       {/* Map Embed */}
       <div className="h-[450px] md:h-auto min-h-[400px]">
         <iframe
@@ -36,17 +35,17 @@ function FindUs() {
       </div>
 
       {/* Location Details */}
-      <div className="flex flex-col justify-center px-8 md:px-16 py-16 bg-[#fdfbf7]">
-        <h2 className="font-[Prata] text-4xl text-[#1d080f] mb-8">
-          Find Us
+     <div className="flex flex-col justify-center items-start text-left px-8 md:px-16 py-16 bg-[#fdfbf7]">
+       <h2 className="font-[Prata] text-3xl md:text-4xl text-[#1d080f] mb-8">
+        Find Us
         </h2>
-
-        <p className="font-[Prata] text-sm text-[#1d080f] mb-2 leading-relaxed">
+        
+        <p className="font-[Prata] text-sm text-[#1d080f] mb-1 leading-relaxed">
           5th Floor, ARADA VIRTUCIO Building
-        </p>
-        <p className="font-[Prata] text-sm text-[#1d080f] mb-6 leading-relaxed">
-          Banay-Banay, San Jose, Batangas
-        </p>
+          </p>
+        <p className="font-[Prata] text-sm text-[#1d080f] mb-4 leading-relaxed">
+            Banay-Banay, San Jose, Batangas
+          </p>
 
         <a
           href={`https://maps.app.goo.gl/Zbj7QZiMJdfBg7Rr6`}
@@ -150,6 +149,13 @@ function Homepage() {
   ]
 
   const scrollRef = useRef(null);
+  const [reviews, setReviews] = useState([]);
+
+  useEffect(() => {
+    fetch("/api/reviews")
+      .then(res => res.json())
+      .then(data => setReviews(data));
+  }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -249,12 +255,21 @@ function Homepage() {
             </Link>
             </div>
       </div>
-      <div className="w-px h-10 bg-amber-500 mx-auto mb-8" />
-      <section className="bg-[#1d080f] text-[#f1ece7] py-24 px-6">
-        {/* testimonial content goes here */}
-        </section>
 
-    <FindUs />    
+    <section className="relative bg-[#1d080f] text-[#f1ece7] py-24 px-6 flex flex-col items-center justify-center text-center">
+  <div className="w-px h-10 bg-amber-500 mb-10" />
+        <p className="font-serif italic text-lg md:text-lg max-w-lg leading-relaxed mb-20">
+          No reviews yet — be the first to share your experience.
+        </p>
+
+        <div className="flex items-end justify-end gap-2 py-18">
+          <span className="w-2 h-2 rounded-full bg-neutral-500" />
+          <span className="w-2 h-2 rounded-full bg-neutral-500" />
+          <span className="w-2 h-2 rounded-full bg-neutral-500" />
+        </div>
+      </section>
+
+      <FindUs />
     </div>
   )
 }
