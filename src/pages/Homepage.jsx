@@ -36,14 +36,14 @@ function FindUs() {
 
       {/* Location Details */}
      <div className="flex flex-col justify-center items-start text-left px-8 md:px-16 py-16 bg-[#fdfbf7]">
-       <h2 className="font-[Prata] text-3xl md:text-4xl text-[#1d080f] mb-8">
+       <h2 className="font-[Prata] text-xl md:text-2xl text-[#1d080f] mb-8">
         Find Us
         </h2>
         
-        <p className="font-[Prata] text-xs text-[#1d080f] mb-1 leading-relaxed">
+        <p className="font-[Prata] text-[11px] md:text-xs text-[#1d080f] mb-1 leading-relaxed">
           5th Floor, ARADA VIRTUCIO Building
           </p>
-        <p className="font-[Prata] text-xs text-[#1d080f] mb-4 leading-relaxed">
+        <p className="font-[Prata] text-[11px] md:text-xs text-[#1d080f] mb-4 leading-relaxed">
             Banay-Banay, San Jose, Batangas
           </p>
 
