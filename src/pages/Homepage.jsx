@@ -40,10 +40,10 @@ function FindUs() {
         Find Us
         </h2>
         
-        <p className="font-[Prata] text-sm text-[#1d080f] mb-1 leading-relaxed">
+        <p className="font-[Prata] text-xs text-[#1d080f] mb-1 leading-relaxed">
           5th Floor, ARADA VIRTUCIO Building
           </p>
-        <p className="font-[Prata] text-sm text-[#1d080f] mb-4 leading-relaxed">
+        <p className="font-[Prata] text-xs text-[#1d080f] mb-4 leading-relaxed">
             Banay-Banay, San Jose, Batangas
           </p>
 
