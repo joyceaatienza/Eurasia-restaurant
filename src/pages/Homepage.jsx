@@ -10,9 +10,56 @@ import alTonno from '../assets/al-tonno2.png'
 import baconCheese from '../assets/bacon-cheese-pizza2.png'
 import margherita from '../assets/margherita2.png'
 import mexicana from '../assets/mexicana.png'
-import pepperoni from '../assets/pepperoni.png'
+import pepperoni from '../assets/pepperoni2.png'
 import quatroFormaggi from '../assets/quatro-formaggi2.png'
-import { useRef } from "react";
+
+import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+
+function FindUs() {
+  const address = "5th Floor ARADA VIRTUCIO Building, Banay-Banay, San Jose, Batangas";
+  const encodedAddress = encodeURIComponent(address);
+
+  return (
+    <section className="grid grid-cols-1 md:grid-cols-2 bg-[#fdfbf7]">
+      {/* Map Embed */}
+      {/* Map Embed */}
+      <div className="h-[450px] md:h-auto min-h-[400px]">
+        <iframe
+          title="Eurasia Restaurant Location"
+          src={`https://www.google.com/maps?q=${encodedAddress}&z=17&output=embed`}          
+          className="w-full h-full"
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+
+      {/* Location Details */}
+      <div className="flex flex-col justify-center px-8 md:px-16 py-16 bg-[#fdfbf7]">
+        <h2 className="font-[Prata] text-4xl text-[#1d080f] mb-8">
+          Find Us
+        </h2>
+
+        <p className="font-[Prata] text-sm text-[#1d080f] mb-2 leading-relaxed">
+          5th Floor, ARADA VIRTUCIO Building
+        </p>
+        <p className="font-[Prata] text-sm text-[#1d080f] mb-6 leading-relaxed">
+          Banay-Banay, San Jose, Batangas
+        </p>
+
+        <a
+          href={`https://maps.app.goo.gl/Zbj7QZiMJdfBg7Rr6`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center w-fit border border-[#1d080f] text-[#1d080f] px-8 py-3 font-[Prata] text-xs tracking-wider hover:bg-[#1d080f] hover:text-white transition duration-300"
+        >
+          Get Directions
+        </a>
+      </div>
+    </section>
+  );
+}
 
 function Homepage() {
   const bestSellers = [
@@ -77,7 +124,7 @@ function Homepage() {
       price: 'Php. 578',
       desc: 'Pomodoro sauce, cheddar, and mozzarella cheese',
       img: pepperoni,
-      position: 'object-[20%]',
+      position: 'object-bottom',
     },
     {
       name: 'Margherita',
@@ -124,12 +171,18 @@ function Homepage() {
 
         <div className="relative z-10 flex flex-col items-center">
          <img src={logo} alt="Eurasia Restaurant" className="w-64 md:w-96 h-auto mb-6 md:mb-8" />
-         <p className="mt-4 md:mt-6 text-xs md:text-base text-[#1d080f] font-serif px-6">
+         <p className="mt-4 md:mt-6 text-xs md:text-base text-[#1d080f] font-[Prata] px-6">
           5th Floor ARADA VIRTUCIO Building, Banay-Banay, San Jose, Batangas
           </p>
           <p className="text-xs md:text-base text-[#1d080f] font-serif px-6">
             [Weekdays] 11:00am-10:00pm &nbsp;|&nbsp; [Weekends] 10:00am-10:00pm
             </p>
+              <Link
+            to="/reservation"
+            className="mt-6 px-8 py-3 bg-[#1d080f] text-[#f1ece7] font-[Prata] tracking-wide rounded-sm hover:bg-[#6a2420] transition-colors shadow-sm"
+          >
+            Reserve a Table
+          </Link>
         </div>
       </div>
 
@@ -137,7 +190,11 @@ function Homepage() {
       <div className="max-w-6xl mx-auto px-6 py-11">
         <div className="flex items-center justify-center gap-4 mb-12">
           <div className="h-px flex-1 bg-neutral-300" />
-          <h2 className="text-7xl font-serif font-bold tracking-wide text-[#1d080f]">BEST SELLER</h2>
+          <h2 className="text-7xl font-[Prata] tracking-wide text-[#1d080f]"
+          style={{ WebkitTextStroke: '0.5px #1d080f' }}
+          >
+            BEST SELLERS
+            </h2>
           <div className="h-px flex-1 bg-neutral-300" />
         </div>
 
@@ -168,7 +225,7 @@ function Homepage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h3 className="text-xl font-serif font-semibold mb-1">{item.name}</h3>
+                  <h3 className="text-xl font-[Prata] font-semibold mb-1">{item.name}</h3>
                   <p className="text-sm text-neutral-200">{item.price}</p>
                 </div>
               </div>
@@ -183,9 +240,24 @@ function Homepage() {
             ›
           </button>
         </div>
+        <div className="flex justify-center mt-12">
+          <Link
+          to="/menu"
+          className="border border-[#1d080f] text-[#1d080f] px-5 py-2 text-xs font-[Prata] hover:bg-[#1d080f] hover:text-white transition inline-flex items-center gap-2"
+          >
+            See Full Menu <span aria-hidden>→</span>
+            </Link>
+            </div>
       </div>
+      <div className="w-px h-10 bg-amber-500 mx-auto mb-8" />
+      <section className="bg-[#1d080f] text-[#f1ece7] py-24 px-6">
+        {/* testimonial content goes here */}
+        </section>
+
+    <FindUs />    
     </div>
   )
 }
 
 export default Homepage
+
