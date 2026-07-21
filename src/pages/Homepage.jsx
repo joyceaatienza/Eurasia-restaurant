@@ -36,7 +36,8 @@ function FindUs() {
 
       {/* Location Details */}
      <div className="flex flex-col justify-center items-start text-left px-8 md:px-16 py-16 bg-[#fdfbf7]">
-       <h2 className="font-[Prata] font-bold text-xl md:text-2xl text-[#1d080f] mb-8">
+       <h2 className="font-[Prata] text-xl md:text-2xl text-[#1d080f] mb-8"
+       style={{ WebkitTextStroke: '0.6px #1d080f' }}>
         Find Us
         </h2>
         
