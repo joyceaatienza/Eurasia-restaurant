@@ -36,7 +36,7 @@ function FindUs() {
 
       {/* Location Details */}
      <div className="flex flex-col justify-center items-start text-left px-8 md:px-16 py-16 bg-[#fdfbf7]">
-       <h2 className="font-[Prata] text-xl md:text-2xl text-[#1d080f] mb-8"
+       <h2 className="font-[Prata] font-bold text-xl md:text-2xl text-[#1d080f] mb-8"
        style={{ WebkitTextStroke: '0.6px #1d080f' }}>
         Find Us
         </h2>
@@ -186,7 +186,7 @@ function Homepage() {
             </p>
               <Link
             to="/reservation"
-            className="mt-6 px-8 py-3 bg-[#1d080f] text-[#f1ece7] font-[Prata] tracking-wide rounded-sm hover:bg-[#6a2420] transition-colors shadow-sm"
+            className="mt-5 px-5 py-2 bg-[#1d080f] text-[#f1ece7] font-[Prata] tracking-wide rounded-sm hover:bg-[#6a2420] transition-colors shadow-sm"
           >
             Reserve a Table
           </Link>
