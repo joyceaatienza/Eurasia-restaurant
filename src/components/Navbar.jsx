@@ -4,22 +4,16 @@ import logo from '../assets/logoword.png'
 import trayIcon from '../assets/tray-icon.png'
 
 function Navbar() {
-  const [menuOpen, setMenuOpen] = useState(false)
   const [reservationOpen, setReservationOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
   const location = useLocation()
-  const isMenuActive = location.pathname.startsWith('/menu')
   const isReservationActive = location.pathname.startsWith('/reservation')
 
-  const menuRef = useRef(null)
   const reservationRef = useRef(null)
 
   useEffect(() => {
     function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false)
-      }
       if (reservationRef.current && !reservationRef.current.contains(event.target)) {
         setReservationOpen(false)
       }
@@ -42,26 +36,7 @@ function Navbar() {
         
         <div className="hidden md:flex items-center gap-8 text-[#1d080f] font-heading">
           <NavLink to="/" end className={linkClass}>Home</NavLink>
-          <div className="relative" ref={menuRef}>
-            <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className={`flex items-center gap-1 ${isMenuActive ? 'font-bold text-[#1d080f] [-webkit-text-stroke:0.4px_#1d080f]' : 'hover:text-[#1d080f]'}`}            >
-              Menu
-              <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            {menuOpen && (
-              <div className="absolute top-full left-0 mt-2 w-48 bg-white/85 shadow-lg border border-neutral-100 py-2 rounded-lg overflow-hidden">               
-                <NavLink to="/menu#best-seller" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-sm hover:bg-neutral-100">Best Seller</NavLink>
-                <NavLink to="/menu#appetizers" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-sm hover:bg-neutral-100">Appetizers</NavLink>
-                <NavLink to="/menu#main-courses" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-sm hover:bg-neutral-100">Main Courses</NavLink>
-                <NavLink to="/menu#pizzas" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-sm hover:bg-neutral-100">Pizzas</NavLink>
-                <NavLink to="/menu#desserts" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-sm hover:bg-neutral-100">Desserts</NavLink>
-                <NavLink to="/menu#drinks" onClick={() => setMenuOpen(false)} className="block px-4 py-2 text-sm hover:bg-neutral-100">Drinks</NavLink>
-              </div>
-            )}
-          </div>
+          <NavLink to="/menu" className={linkClass}>Menu</NavLink>
 
           <div className="relative" ref={reservationRef}>
           <button 
