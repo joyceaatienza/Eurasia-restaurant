@@ -2,16 +2,15 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="bg-[#1d080f] text-[#f1ece7] px-4 md:px-16 py-4 md:py-8">
+    <footer className="static w-full bg-[#1d080f] text-[#f1ece7] px-4 md:px-16 py-4 md:py-8">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-5 md:gap-8">
 
         {/* Contact Us Section */}
         <div className="flex flex-col items-center md:items-start w-full md:w-auto">
           <h3 className="text-xs font-[Prata] font-bold mb-2 md:mb-4">Contact Us</h3>
-          
-          {/* Always 2 columns even on mobile to keep height minimal */}
+
           <div className="grid grid-cols-2 gap-x-4 md:gap-x-12 gap-y-2 items-center w-full max-w-md md:max-w-none">
-            
+
             {/* Facebook Link */}
             <a
               href="https://www.facebook.com/EaurasiaRestaurant"

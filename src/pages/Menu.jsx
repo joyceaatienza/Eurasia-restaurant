@@ -74,7 +74,7 @@ function Menu() {
 
   return (
     // CHANGE 1: Turn outer container into flex flex-col min-h-screen
-    <div className="min-h-screen flex flex-col bg-white text-[#1d080f]">
+    <div className="flex flex-col bg-white text-[#1d080f]">
       
       {/* Hero */}
       <div className="relative h-64 md:h-80 overflow-hidden shrink-0">

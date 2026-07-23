@@ -6,11 +6,20 @@ import trayIcon from '../assets/tray-icon.png'
 function Navbar() {
   const [reservationOpen, setReservationOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
 
   const location = useLocation()
   const isReservationActive = location.pathname.startsWith('/reservation')
 
   const reservationRef = useRef(null)
+
+  useEffect(() => {
+    function handleScroll() {
+      setScrolled(window.scrollY > 20)  
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -28,9 +37,7 @@ function Navbar() {
       : 'hover:text-[#1d080f]'
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-xl">
-      <div className="flex items-center justify-between px-6 md:px-10 py-4">
-        <NavLink to="/">
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-transparent shadow-none' : 'bg-white shadow-xl'}`}>        <NavLink to="/">
           <img src={logo} alt="Eurasia Restaurant" className="h-12 w-auto" />
         </NavLink>
         
@@ -77,7 +84,6 @@ function Navbar() {
             </svg>
           </button>
         </div>
-      </div>
 
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-neutral-100 px-6 py-4 flex flex-col gap-4 font-heading text-[#1d080f]">        
